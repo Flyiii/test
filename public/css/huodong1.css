@@ -1,0 +1,32 @@
+*{margin:0px auto;padding:0px;}
+a{text-decoration:none;}
+.clear:after{display:block;content:'';zoom:1;clear:both;}
+/**/
+#top{height:25px;-background-color:pink;line-height:25px;
+border-bottom: 1px solid #EFEFEF;font-size:12px;font-family:宋体;}
+#top a{color: #369;}
+.hehe{float:left;margin-left:20px;}
+.hehe2{float:right;padding-right:20px;margin-right:20px;}
+.fanhui {padding-right: 16px;background: url(http://localhost/mybbs/public/img/images/arrwd.gif) no-repeat 100% 50%;
+cursor: pointer;white-space: nowrap;}
+.td_srchtxt {background: url(http://localhost/mybbs/public/img/images/searchbar.png) no-repeat 0 -35px;}
+#sousuokuang{height:600px;width:100%;-background-color:yellow;}
+.hehe3{height:100px;width:100%;-background-color:red;padding-left:15px;}
+.hehe4{height:100px;width:1000px;-background-color:pink;float:left;}
+.hehe4 table{border-collapse: collapse;background: url(http://localhost/mybbs/public/img/images/searchbar.png) repeat-x 0 0;}
+.hehe4 .td_txt{height:35px;width:460px;
+line-height: 35px;background: url(http://localhost/mybbs/public/img/images/searchbar.png) no-repeat 0 -35px;}
+.td_txt input{min-height: 35px;width:486px;background: transparent;outline: none;color: #444;border: 0;margin-left: 8px}
+.hehe4 .td_btn{background: url(http://localhost/mybbs/public/img/images/searchbar.png) no-repeat 0 -70px;}
+.btn{width: 107px;opacity: 0;cursor: pointer;}
+.sttl {margin: 10px 0;padding: 5px;border-bottom: 1px solid #CCC;background: #F5F5F5;}
+.tl{padding-top: 90px;}
+h2{font-size: 13px; color: #666;}
+em{font-style:normal;}
+span{font-style:normal;}
+.emp {padding: 20px 10px;color: #666;font-size: 14px !important;}
+.cl{    margin-top: 150px;}
+.dibu{    padding-left: 560px;border-top: 1px solid #CDC;}
+em{font-size:12px;}
+.slst{font-size: 13px;}
+.slst ul{list-style:none;}

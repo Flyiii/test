@@ -1,0 +1,72 @@
+ <html>
+	<head>
+		<title>{$title}</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="http://localhost/mybbs/public/css/ht1.css" type="text/css"/>
+	</head>
+	<body> 
+			
+			<!--left start-->
+			<div id = "down">
+				<div id = "left">
+					<div class="left_ul">
+					<ul>
+						<li><a href="admin_index.php?htid=8">管理板块</li>
+						<li><a href="admin_index.php?htid=9">添加板块</li>
+					</ul>
+					</div>
+					<div class="left_bottom">
+						<p>
+							Powered by
+							<strong><a href='#'>phpxy</a></strong>
+							<em>V2</em>
+						</p>
+						<p>
+							&copy;2017 <a href='#'>phpxy Inc</a>
+						</p>
+					</div>
+				</div>
+				<!--left end--->
+				
+				<!--right start-->
+					
+				<div id="right">
+					<div class="right_one">
+						<h3>添加板块</h3>
+					</div>
+					
+					<div class="close_Site">
+						<p>技巧提示</p>
+					</div>
+					<div class="hehe3">
+						<ul>
+							<li>添加时不选择大版块即为添加大版块</li>
+						</ul>
+					</div>
+					<form action="admin_index_insert2.php" method="post">
+					<div class="hehe4">
+						<div class="hehe5">板块名称</div>
+						<div class="hehe6"><input type="text" name="bankuainame" value=""/></div>
+					</div>
+					<div class="hehe7">
+						<div class="hehe8">选择大板块</div>
+						<div class="hehe9">
+							<select name="xiala">
+								<option value="0">不选择</option>
+								{foreach $row2 as $value}
+								{if $value['sid'] == 0}
+								<option value="{$value['id']}">{$value['name']}</option>
+								{/if}
+								{/foreach}
+							</select>
+							<div class="hehe10">
+								<input type="submit" name="bkinsert" value="提交"/>
+							</div>
+						</div>
+						</div>
+					</form>
+				<!--right end-->
+			 </div>
+			 </div>
+</body>
+</html>

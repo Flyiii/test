@@ -1,0 +1,90 @@
+*{
+	margin:0;padding:0;
+}
+/*=====后台登录=====*/
+.dl{
+	width:600px;
+	height:152px;
+	margin:0 auto;
+	margin-top:150px;
+}
+.dl .dl_lf{
+	width:310px;
+	height:150px;
+	padding-right:30px;
+	float:left;	
+	position: relative;
+}
+.dl .dl_lf .dl_lf_log{
+	width:226px;
+	height:31px;
+	margin-top:20px;
+}
+.dl .dl_lf .dl_lf_log .dl_log_a{
+	height:31px;
+}
+.dl .dl_lf .dl_lf_title{
+	font-size:13px;
+	margin-top:-30px;
+}
+.dl .dl_lf .dl_lf_log1{
+	width:20px;
+	height:120px;
+	background: url('../admin/bg_login.gif') no-repeat 0 0;
+	position:absolute;
+	top:10px;
+	right:0;
+}
+.dl .dl_lf .dl_lf_title .dl_title_a{
+	color:blue;
+}
+.dl .dl_ri{
+	width:260px;
+	height:150px;
+	float:right;
+}
+.dl .dl_ri .dl_ri_font{
+	width:60px;
+	height:130px;
+	margin-top:20px;
+	font-weight:700;
+	color:#666;
+	float:left;
+}
+.dl .dl_ri .dl_ri_font .dl_a{
+	font-size:15px;
+	padding-bottom:5px;
+}
+.dl .dl_ri .dl_ri_form{
+	width:200px;
+	height:130px;
+	margin-top:20px;
+	float:right;
+}
+.dl .dl_ri .dl_ri_form .dl_form_user{
+	width:150px;
+	height:18px;
+	padding:2px;
+	border:1px solid #ccc;
+	margin-bottom:3px;
+}
+.dl .dl_ri .dl_ri_form .dl_form_user1{
+	width:156px;
+}
+.dl .dl_ri .dl_ri_form .dl_form_sub{
+	width:34px;
+	height:20px;
+	border:1px solid #ccc;
+	margin-top:5px;
+}
+.dl_end{
+	width:600px;
+	height:30px;
+	margin:0 auto;
+	margin-top:233px;
+	text-align:center;
+	font-size:13px;
+}
+.dl_end .dl_end_a{
+	color:blue;
+}

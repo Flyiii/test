@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>{$title}</title>
+	<link rel="stylesheet" type="text/css" href="../public/css/base.css">
+</head>
+<body>
+	<!-- ======================发帖页面============================= -->
+	<div class="fat">
+		<div class="neihe_head clearFix">
+			<ul>
+				<li class="neihe_head_a"></li>
+				<li class="neihe_head_b"></li>
+				<li><a  class="neihe_head_c" href="index.php">论坛</a></li>
+				
+				<li class="neihe_head_b"></li>
+				<li><a class="neihe_head_c" href="index.php?classid={$bigId}">{$bigName}</a></li>
+				<li class="neihe_head_b"></li>
+				<li><a class="neihe_head_c" href="neihe.php?classid={$smallId}">{$smallName}</a></li>
+				<em>发表帖子</em>
+			</ul>
+		</div>
+		<!-- ========================发帖 content====================== -->
+		<div class="fat_content">
+			<div class="fat_count_hd">
+				<p class="fat_count_hd1">发表帖子</p>
+			</div>
+			<form action="ft.php" method="post">
+				<div class="fat_title">
+					<!-- <input class="fat_title_a" type="text" name="title" value=""> -->
+					<span><input type="text" name="title" id="subject" class="px" onkeyup="showLength(this,'checklen',80);" style="width: 25em" tabindex="1" /></span>
+					<span id="subjectchk">还可输入 <strong id="checklen">80</strong> 个字符</span>
+				</div>
+				<div class="fat_body">
+					<textarea class="fat_body_a" name="content" value=""></textarea>
+				</div>
+				<div class="fat_soujia">
+					<div class="fat_soujia_a">
+						<span class="fat_soujia_aa"></span>
+						<span>售价</span>
+					</div>
+					<div class="fat_soujia_b">
+						售价：<input class="fat_soujia_bb" type="text" name="sj" value="" placeholder="0">
+						<span>金钱</span>
+						<span class="fat_max">(最高30)</span>
+					</div>
+				</div>
+				<input type="hidden" id="classid" name="classid" value="{$classId}" />
+				<div class="fat_sub">
+					<input class="fat_sub_a" type="submit" name="sub" value="发表贴子">
+				</div>
+			</form>
+			<script>
+	
+	var BROWSER = {};
+	var USERAGENT = navigator.userAgent.toLowerCase();
+	browserVersion({'ie':'msie','firefox':'','chrome':'','opera':'','safari':'','mozilla':'','webkit':'','maxthon':'','qq':'qqbrowser'});
+	if(BROWSER.safari) {
+		BROWSER.firefox = true;
+	}
+	BROWSER.opera = BROWSER.opera ? opera.version() : 0;
+
+	function showLength(obj,checklen,maxlen){
+	
+		var v = obj.value, charlen = 0, maxlen = !maxlen ? 200 : maxlen, curlen = maxlen, len = strlen(v);
+		for(var i = 0; i < v.length; i++) {
+			if(v.charCodeAt(i) < 0 || v.charCodeAt(i) > 255) {
+				curlen -= 2;
+			}
+		}
+		if(curlen >= len) {
+			document.getElementById("checklen").innerHTML = curlen - len;
+		} else {
+			obj.value = mb_cutstr(v, maxlen, true);
+		}
+	
+	}
+	
+	function strlen(str) {
+		return (BROWSER.ie && str.indexOf('\n') != -1) ? str.replace(/\r?\n/g, '_').length : str.length;
+	}
+	
+	function mb_cutstr(str, maxlen, dot) {
+		var len = 0;
+		var ret = '';
+		var dot = !dot ? '...' : '';
+		maxlen = maxlen - dot.length;
+		for(var i = 0; i < str.length; i++) {
+			len += str.charCodeAt(i) < 0 || str.charCodeAt(i) > 255 ? 3 : 1;
+			if(len > maxlen) {
+				ret += dot;
+				break;
+			}
+			ret += str.substr(i, 1);
+		}
+		return ret;
+	}
+	
+	function extraCheck(len){
+	
+		strlen=document.getElementById('price').value.length;
+		if(strlen>len){
+			alert('最高 30');
+			document.getElementById('price').value=0;
+		}else{
+		
+			if(document.getElementById('price').value>30){
+			
+				alert('最高 30');
+				document.getElementById('price').value=30;
+			
+			}
+		
+		}
+	
+	}
+	</script>
+		</div>
+	</div>
+</body>
+</html>

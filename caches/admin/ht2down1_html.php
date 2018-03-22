@@ -1,0 +1,89 @@
+ <html>
+	<head>
+		<title><?=$title;?></title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="http://localhost/mybbs/public/css/ht1.css" type="text/css"/>
+	</head>
+	<body> 
+			
+			<!--left start-->
+			<div id = "down">
+				<div id = "left">
+					<div class="left_ul">
+					<ul>
+						<li><a href="admin_index.php?htid=6">编辑用户</li>
+						<li><a href="admin_index.php?htid=7">禁止ip</li>
+					</ul>
+					</div>
+					<div class="left_bottom">
+						<p>
+							Powered by
+							<strong><a href='#'>phpxy</a></strong>
+							<em>V2</em>
+						</p>
+						<p>
+							&copy;2017 <a href='#'>phpxy Inc</a>
+						</p>
+					</div>
+				</div>
+				<!--left end--->
+				
+				<!--right start-->
+					
+				<div id="right">
+					<div class="right_one">
+						<h3>禁止IP</h3>
+					</div>
+					
+					<div class="close_Site">
+						<p>技巧提示</p>
+					</div>
+					<div class="skill">
+						<ul>
+							<li>被限制的IP地址不能访问本站。</li>
+							<li>有效期如果设置为空则视为永久禁止。</li>
+						</ul>
+					</div>
+					<div class="wocao">
+						<div class="wocao_b">IP 地址</div>
+						<div class="wocao_c">起始时间</div>
+						<div class="wocao_d">终止时间</div>
+					</div>
+					 <form action="admin_index_bannedip.php" method="post">
+					<?php if (!empty($row4[0]['ip'])): ?>
+					<?php foreach ($row4 as $value):?>
+					
+					 <div class="bannedip">
+						<input type="hidden" name="id" value="<?=$value['id'];?>"/>
+						 <div class="bannedip1"><?=$value['ip'];?></div>
+						<div class="bannedip2"><?=$value['createtime'];?></div>
+						<div class="bannedip3"><?=$value['overtime'];?></div> 
+						<div class="jiejin"><input type="submit" name="jiejin" value="解禁"/></div>
+					</div> 
+					
+					<?php endforeach;?>
+					<?php endif; ?>
+					<div class="en">
+						<div class="ai">新增</div>
+						
+						<div class="cao">
+							<input type="text" name="ip1"/>.
+							<input type="text" name="ip2"/>.
+							<input type="text" name="ip3"/>.
+							<input type="text" name="ip4"/>
+						</div>
+						<div class="ri">有效期:</div>
+						<div class="mei">
+							<input type="text" name="day"/>
+						</div>
+						<div class="ca">天</div>
+					</div>
+					<div class="btn">
+						<input type="submit" name="btn" value="提交"/>
+					</div> 
+					</form> 
+				<!--right end-->
+			 </div>
+			 </div>
+</body>
+</html>

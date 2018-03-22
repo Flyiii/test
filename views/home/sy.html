@@ -1,0 +1,281 @@
+<!-- <html>
+<head>
+	
+	<title>首页-10分学院</title>
+	<meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="http://localhost/mybbs/public/css/base.css">
+</head>
+<body class="body">
+	<div class="head_top">
+		<a href="">设为首页</a>
+		<a href="">收藏本站</a>
+	</div>
+	<div class="head_body">
+		<img class="head_logo" src="http://localhost/mybbs/public/img/images/logo.jpg"/> 
+		<form action="post.php" method="post">
+			<div class="head_right clearFix">
+				<div class="head_right_a">
+					<i>用户名</i>
+					<input class="head_text" type="text" name="user" value="">
+					<input class="head_check" type="checkbox" name="check" id="zd" value=""><label  for="zd">&nbsp; 自动登录</label>
+					<a class="head_zmm" href="findmm.html">找回密码</a>
+				</div>
+				<div class="head_right_b">
+					<i>密码</i>
+					<input class="head_pass" type="password" name="pass" value="">
+					<input class="head_sub" type="submit" name="sub"  value="登录">
+					<a class="head_zc" href="zuce.html">立即注册</a>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="title clearFix">
+		<ul>
+			<li class="title_li"><a href="index.php?bigid=0">首页</a></li>			
+			<!-- <li class="title_li"><a href="head.html">php技术交流</a></li>
+			<li class="title_li"><a href="head.html">程序人生</a></li> -->
+<!--			{foreach $row2 as $value}
+				{if $value['sid'] == 0}
+			<li class="title_li"><a href="index.php?bigid={$value['id']}">{$value['name']}</a></li>
+				{/if}
+			{/foreach}
+		</ul>
+	</div>
+	<div class="search">
+		<form action="" method="">
+			<ul>
+				<li class="search_a"></li>
+				<li class="search_b"><input class="search_bb" type="text" name="serrch" value=""></li>
+				<li class="search_c"><input class="search_cc" type="submit" name="sub" value="搜索"></li>
+				<li class="search_d">搜索：</li>
+				<li><a href="serch.html">活动</a></li>
+				<li><a href="serch.html">交友</a></li>
+				<li><a href="serch.html">教程</a></li>
+			</ul>
+		</form>
+	</div> -->
+	<!-- ======================首页版面展示 start ================================ -->
+ 
+	<div class="pmzs">
+		<!-- ============论坛=============== -->
+		<div class="pmzs_nav">
+			<div class="pmzs_box1 clearFix">
+				<ul>
+					<li class="pmzs_box1_a"></li>
+					<li class="pmzs_box1_b"></li>
+					<li class="pmzs_box1_c"><a href="index.php">论坛</a></li>
+				</ul>
+			</div>
+			<div class="pmzs_box2 clearFix">
+				<ul>
+					<li class="pmzs_box2_a"></li>
+					<li class="pmzs_box2_b">帖子：</li>
+					<li class="pmzs_box2_c">{$Sum}</li>
+					<li class="pmzs_box2_d">会员：</li>
+					<li class="pmzs_box2_e">{$userSum}</li>
+					
+					<li class="pmzs_box2_f">欢迎新会员：</li>
+					{foreach $newUser as $value}
+					<li class="pmzs_box2_g">{$value['name']}</li>
+					{/foreach}
+				</ul>
+			</div>
+		</div>
+		<!-- ==============技术人生================== -->
+		
+				
+				<!--=====================-->
+		<div class="pmzs_content">
+	
+		 {foreach $row2 as $value}
+				{if empty($_GET['bigid'])}
+			{if $value['sid'] == 0} 
+			
+			<div class="pmzs_cont_head">
+				<a class="pmzs_js" href="index.php?bigid={$value['id']}">{$value['name']}</a>
+			</div>
+			
+			{/if}
+					
+					{#$id=$value['id']}
+					{foreach $row2 as $value} 
+					 {if  $value['sid'] == $id } 
+			<div class="pmzs_js_a clearFix">
+				<img class="pmzs_js_xbt" src="http://localhost/mybbs/public/img/images/forum.gif">
+				
+					<div class="pmzs_js_neihe"><a href="neihe.php?classid={$value['id']}"><p>{$value['name']}</p><p>版主：{$value['masters']}</p></a></div>
+				 {foreach $row3 as $name} 
+							 {if $value['id'] == $name['pid'] && $name['rid']== 0  && $name['isdelete'] == 0} 
+								{#$sum++} 
+						 {/if} 
+						{/foreach} 
+						{foreach $row3 as $name} 
+							 {if $value['id'] == $name['pid'] && $name['rid']== 1 && $name['isdelete'] == 0} 
+								{#$um++} 
+							{/if} 
+						{/foreach} 
+					<div class="pmzs_js_sz"><span>{$um}/{$sum}</span></div>
+						 {#$sum = 0} 
+						 {#$um = 0} 
+					<!--右边-->
+					
+					{foreach $row3 as $post}
+						{#$user = $post['uid']}
+				
+							{if $value['lastpid'] == $post['id'] && $post['rid'] == 0 && $post['isdelete'] == 0}
+					<div class="pmzs_js_time">
+					<!--======================================================-->
+							
+						<div class = "hehe"><a href="neihe.php?classid={$value['id']}">{$post['title']}</a></div>	
+
+								{foreach $row1 as $name}
+									{if $user == $name['id']}
+						<div class = "haha">{=date('Y-m-d H:i:s',($post['createtime']))}&nbsp;&nbsp;{$name['name']}</div>
+									{/if}
+								{/foreach}
+							
+							
+						<!--======================================================-->
+					</div>
+							
+							{/if}
+					{/foreach}
+					
+					<!--==============================================================-->
+							
+							<!--======================================================-->
+							
+				 	<!--右边-->		
+							
+				<!-- <div class="nima"><span class="pmzs_js_bzu">版主：{$value['masters']}</span></div> -->
+					
+							
+				
+			</div>
+			
+				 {/if}
+				{/foreach}
+				
+				{/if}
+			{/foreach} 
+		
+			</div>
+		<!--=================================================================-->
+		<div class="pmzs_content">
+		<!-- {foreach $row2 as $value}
+				{if $_GET['bigid'] == $value['id']}
+			{if $value['sid'] == 0} -->
+			<div class="pmzs_cont_head">
+				<a class="pmzs_js" href="index.php?bigid={$value['id']}">{$value['name']}</a>
+			</div>
+			<!-- {/if}
+			
+					{#$id=$value['id']}
+					{foreach $row2 as $value}  
+					 {if  $value['sid'] == $id } -->
+			<div class="pmzs_js_a clearFix">
+				<img class="pmzs_js_xbt" src="http://localhost/mybbs/public/img/images/forum.gif">
+				
+					<div class="pmzs_js_neihe"><a href="neihe.php?classid={$value['id']}"><p>{$value['name']}</p><p>版主：{$value['masters']}</a></div>
+						{foreach $row3 as $name} 
+							 {if $value['id'] == $name['pid'] && $name['rid']== 0 && $name['isdelete'] == 0} 
+								{#$sum++} 
+							{/if} 
+						{/foreach} 
+						{foreach $row3 as $name} 
+							 {if $value['id'] == $name['pid'] && $name['rid']== 1 && $name['isdelete'] == 0} 
+								{#$um++} 
+							{/if} 
+						{/foreach} 
+						<div class="pmzs_js_sz"><span>{$um}/{$sum}</span></div>
+						 {#$sum = 0} 
+						 {#$um = 0} 
+						<div class="pmzs_js_time">
+						{foreach $row3 as $post}
+							{#$user = $post['uid']}
+							{if $value['lastpid'] == $post['id'] && $post['rid'] == 0 && $post['isdelete'] == 0}
+								
+						<div class = "hehe"><a href="neihe.php?classid={$value['id']}">{$post['title']}</a></div>
+							
+								{foreach $row1 as $name}
+									{if $user == $name['id']}
+						<div class = "haha">{=date('Y-m-d H:i:s',($post['createtime']))}&nbsp;&nbsp;{$name['name']}</div>
+									{/if}
+								{/foreach}								
+							
+							{/if}
+						{/foreach}
+					</div>
+				 			
+							
+				<!-- <div class="nima"><span class="pmzs_js_bzu">版主：{$value['masters']}</span></div> -->
+					
+				
+			</div>
+				<!-- {/if}
+				{/foreach}
+				{/if}
+			{/foreach} -->
+		<!--=================================================================-->
+		</div>
+			
+			<!-- ===================PHP技术交流======================= -->
+		
+	</div>
+	
+	<!-- ===================首页尾部======================= -->
+	
+	<div class="weibu clearFix">
+		<div class="weibu_box1">
+		{foreach $row as $value}
+		{if $value['id'] == 1}
+			<img class="weibu_logo" src="{$value['icon']}">
+		
+			<div class="weibu_right">
+			
+				<p><a class="weibu_box1_a" href="{$value['url']}">{$value['name']}</a></p>
+			
+				<p class="weibu_box1_b">{$value['intro']}</p>
+			</div>
+			{/if}
+		{/foreach}
+		</div>
+		
+		<div class="weibu_box2">
+			<ul>
+				<!-- <li><a href="">百度</a></li> -->
+				{foreach $row as $value}
+		{if $value['id'] != 1}
+				<li class="weibu_box2_li1"><a href="{$value['url']}">{$value['name']}</a></li>
+				{/if}
+		{/foreach}
+				<!-- li class="weibu_box2_li1"><a href="">漫游平台</a></li>
+			<li class="weibu_box2_li2"><a href="">Yeswan</a></li>
+			<li class="weibu_box2_li2"><a href="">我的领地</a></li> -->
+			</ul>
+		</div>
+		
+	</div>
+	
+	<!-- <div class="weibu1">
+		<div class="weibu1_left">
+			<p>
+				<span>Powered by </span>
+				<a href="">phpxy</a>
+				<span>V2</span>
+			</p>
+			<p class="weibu1_left_a">
+				<span>© 2017 </span>
+				<a class="weibu1_left_aa" href="http://www.phpxy.com">phpxy Inc.</a>
+			</p>
+		</div>
+		<div class="weibu1_right">
+			<p>
+				<a class="weibu1_right_a" href="">京ICP备 89273号</a>
+				<a class="weibu1_right_b" href="">phpxy</a>
+			</p>
+			<p class="weibu1_right1">Time Now Is: 09-22 08:49	</p>
+		</div>
+	</div>
+</body>
+</html> -->
